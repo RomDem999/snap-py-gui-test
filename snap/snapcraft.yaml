@@ -1,6 +1,6 @@
 name: py-gui-test
 base: core22
-version: '0.4'
+version: '0.5'
 summary: Runs test py script
 description: Runs test py script by using gui
 grade: stable
@@ -11,7 +11,7 @@ layout:
     bind: $SNAP/usr/share
 
 apps:
-  os-release:
+  main:
     command: bin/start.sh
     plugs:
       - unity7
