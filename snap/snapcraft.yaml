@@ -1,0 +1,35 @@
+name: py-gui-test
+base: core22
+version: '0.4'
+summary: Runs test py script
+description: Runs test py script by using gui
+grade: stable
+confinement: strict
+
+layout:
+  /usr/share:
+    bind: $SNAP/usr/share
+
+apps:
+  os-release:
+    command: bin/start.sh
+    plugs:
+      - unity7
+      - x11
+      - desktop
+      - gsettings
+      - home
+parts:
+  py-test:
+    plugin: dump
+    source: .
+    organize:
+      start.sh: bin/
+      py-gui-test.py: bin/
+    stage-packages:
+      - python2
+      - python-tk
+    override-build: |
+      craftctl default
+
+
